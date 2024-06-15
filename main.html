@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Calculator</title>
+    <style>
+        /* Enhanced styles for a better nice appearence */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        .calculator-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) 1fr;
+            grid-template-rows: auto repeat(5, 1fr);
+            gap: 10px;
+            border: 2px solid #ecf0f1;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .title {
+            grid-column: span 4;
+            text-align: left;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #16a085;
+        }
+        .title.converter {
+            grid-column: span 1;
+            text-align: right;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #16a085;
+        }
+        .display, .result {
+            grid-column: span 5;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: right;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #16a085;
+            margin-bottom: 10px;
+            background-color: #f1f8e9;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+        }
+        .result {
+            background-color: #e0f2f1;
+        }
+        .button, .conversion-button {
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #1abc9c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button:hover, .conversion-button:hover {
+            background-color: #16a085;
+        }
+        .button.operator, .conversion-button {
+            background-color: #e74c3c;
+        }
+        .button.operator:hover, .conversion-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="title">Calculator</div>
+        <div class="title converter">Converter</div>
+        <!-- Display for the input numbers and results -->
+        <input type="text" class="display" id="display" disabled>
+        <input type="text" class="result" id="result" disabled>
+        
+        <!-- Number and operator buttons for the calculator -->
+        <button class="button" onclick="appendNumber('7')">7</button>
+        <button class="button" onclick="appendNumber('8')">8</button>
+        <button class="button" onclick="appendNumber('9')">9</button>
+        <button class="button operator" onclick="chooseOperation('/')">/</button>
+        <!-- Conversion buttons for unit conversions -->
+        <button class="conversion-button" onclick="convertKgToLbs()">Kg to lbs</button>
+        
+        <button class="button" onclick="appendNumber('4')">4</button>
+        <button class="button" onclick="appendNumber('5')">5</button>
+        <button class="button" onclick="appendNumber('6')">6</button>
+        <button class="button operator" onclick="chooseOperation('*')">*</button>
+        <button class="conversion-button" onclick="convertFeetToMeters()">Feet to m</button>
+        
+        <button class="button" onclick="appendNumber('1')">1</button>
+        <button class="button" onclick="appendNumber('2')">2</button>
+        <button class="button" onclick="appendNumber('3')">3</button>
+        <button class="button operator" onclick="chooseOperation('-')">-</button>
+        <button class="conversion-button" onclick="convertCelsiusToFahrenheit()">°C to °F</button>
+        
+        <button class="button" onclick="appendNumber('0')">0</button>
+        <button class="button" onclick="appendNumber('.')">.</button>
+        <button class="button operator" onclick="chooseOperation('+')">+</button>
+        <button class="button" onclick="clearDisplay()">C</button>
+        <button class="conversion-button" onclick="convertFahrenheitToCelsius()">°F to °C</button>
+        
+        <button class="button" onclick="calculate()">=</button>
+        <button class="button operator" onclick="backspace()">←</button>
+        <button class="button operator" onclick="square()">x²</button>
+        <button class="button operator" onclick="squareRoot()">√</button>
+        <button class="conversion-button" onclick="convertInchesToCm()">Inches to cm</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
