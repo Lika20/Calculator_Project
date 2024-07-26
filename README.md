@@ -1,6 +1,6 @@
-# Calculator Project
+## Calculator Project
 
-A professional-looking calculator with a unit converter built using HTML, CSS, and JavaScript.
+This a personalized professional-looking calculator with a unit converter built using HTML, CSS, and JavaScript.
 
 ## Features
 
